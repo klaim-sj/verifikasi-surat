@@ -8,48 +8,25 @@
   <title>Verifikasi Dokumen</title>
   <style>
     :root {
-      --bg: 
-#f3f6f6;
-      --card: 
-#ffffff;
-      --text: 
-#1f2933;
-      --muted: 
-#616e7c;
-      --line: 
-#e4e7eb;
-      --brand: 
-#0f766e;
-      --ok: 
-#15803d;      --ok-bg: 
-#e8f6ec;
-      --bad: 
-#b91c1c;     --bad-bg: 
-#fdecec;
-      --warn: 
-#b45309;    --warn-bg: 
-#fff4e0;
+      --bg: #f3f6f6;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #616e7c;
+      --line: #e4e7eb;
+      --brand: #233f99;
+      --ok: #15803d;      --ok-bg: #e8f6ec;
+      --bad: #b91c1c;     --bad-bg: #fdecec;
+      --warn: #b45309;    --warn-bg: #fff4e0;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: 
-#0f1416; --card: 
-#182024; --text: 
-#e6ebee; --muted: 
-#9aa5b1; --line: 
-#26323a;
-        --brand: 
-#2dd4bf;
-        --ok: 
-#4ade80; --ok-bg: 
-#12301f;
-        --bad: 
-#f87171; --bad-bg: 
-#3a1717;
-        --warn: 
-#fbbf24; --warn-bg: 
-#3a2a0f;
+        --bg: #0f1416; --card: #182024; --text: #e6ebee; --muted: #9aa5b1; --line: #26323a;
+        --brand: #8ea4ec;
+        --ok: #4ade80; --ok-bg: #12301f;
+        --bad: #f87171; --bad-bg: #3a1717;
+        --warn: #fbbf24; --warn-bg: #3a2a0f;
       }
+      header .logo { filter: brightness(0) invert(1); }
     }
     * { box-sizing: border-box; }
     body {
@@ -57,9 +34,9 @@
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       display: flex; flex-direction: column; align-items: center; padding: 24px 16px;
     }
-    header { width: 100%; max-width: 440px; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
-    header img { height: 32px; }
-    header .org { font-weight: 700; font-size: 18px; color: var(--brand); }
+    header { width: 100%; max-width: 440px; display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 20px; }
+    header .logo { height: 28px; width: auto; display: block; }
+    header .tag { font-size: 12px; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
     main {
       width: 100%; max-width: 440px; background: var(--card); border: 1px solid var(--line);
       border-radius: 16px; padding: 28px 22px; box-shadow: 0 2px 12px rgba(0,0,0,.05);
@@ -91,8 +68,8 @@
 </head>
 <body>
   <header>
-    <!-- Ganti dengan logo resmi: <img src="logo.png" alt="SalingJaga"> -->
-    <span class="org">SalingJaga</span>
+    <img class="logo" alt="SalingJaga" src="data:image/png;base64,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">
+    <span class="tag">Verifikasi Dokumen</span>
   </header>
 
   <main id="card" aria-live="polite">
